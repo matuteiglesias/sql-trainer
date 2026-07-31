@@ -34,13 +34,14 @@ export function isExecuteResponse(value: unknown): value is ExecuteResponse {
 
   if (response.ok) {
     const result = response.result as Record<string, unknown> | undefined;
+    const columns = result?.columns;
     return Boolean(
       result &&
-        Array.isArray(result.columns) &&
-        result.columns.every((column) => typeof column === "string") &&
+        Array.isArray(columns) &&
+        columns.every((column) => typeof column === "string") &&
         Array.isArray(result.rows) &&
         result.rows.every(
-          (row) => Array.isArray(row) && row.length === result.columns.length && row.every(isQueryValue),
+          (row) => Array.isArray(row) && row.length === columns.length && row.every(isQueryValue),
         ),
     );
   }

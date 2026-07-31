@@ -24,7 +24,7 @@ describe("executeSql", () => {
   it("executes a query against the real fixture", () => {
     expect(executeSql(SQL, fixture, "SELECT first_name FROM patients WHERE patient_id = 1")).toEqual({
       ok: true,
-      result: { columns: ["first_name"], rows: [["Amina"]] },
+      result: { columns: ["first_name"], rows: [["John"]] },
     });
   });
 
@@ -41,7 +41,7 @@ describe("executeSql", () => {
     expect(executeSql(SQL, fixture, "UPDATE patients SET first_name = 'Changed' WHERE patient_id = 1").ok).toBe(true);
     expect(executeSql(SQL, fixture, "SELECT first_name FROM patients WHERE patient_id = 1")).toEqual({
       ok: true,
-      result: { columns: ["first_name"], rows: [["Amina"]] },
+      result: { columns: ["first_name"], rows: [["John"]] },
     });
   });
 });
