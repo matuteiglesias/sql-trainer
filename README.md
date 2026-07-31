@@ -5,10 +5,10 @@ SQLite `SELECT` syntax. Version 0.1 uses one frozen hospital dataset and five
 original exercises. It has no backend and sends no learner query to a
 project-controlled server.
 
-PR01 contains only the repository foundation and fixture checks. SQL execution,
-content loading, evaluation, the complete practice interface, and progress
-storage are introduced by the later pull requests listed in the development
-bundle.
+The application includes browser-worker SQL execution, validated exercise
+content, deterministic result evaluation, the complete practice interface, and
+versioned local progress storage. The original staged development contracts are
+retained in the development bundle for audit history.
 
 ## Requirements
 
