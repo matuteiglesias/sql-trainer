@@ -9,7 +9,10 @@ const DATABASE_URL = "/db/hospital_v0_1.sqlite";
 type Runtime = { execute(url: string, sql: string): Promise<EngineOutcome>; introspectSchema(url: string): Promise<SchemaOutcome>; dispose(): void };
 export type AppProps = { loadContent?: () => Promise<Exercise[]>; createRuntime?: () => Runtime; storage?: Storage };
 
-export function App({ loadContent = () => loadExercises(), createRuntime = () => new SqliteWorkerClient(), storage = window.localStorage }: AppProps) {
+const loadDefaultContent = () => loadExercises();
+const createDefaultRuntime = () => new SqliteWorkerClient();
+
+export function App({ loadContent = loadDefaultContent, createRuntime = createDefaultRuntime, storage = window.localStorage }: AppProps) {
   const runtime = useMemo(createRuntime, [createRuntime]);
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -36,22 +39,33 @@ export function App({ loadContent = () => loadExercises(), createRuntime = () =>
   const exercise = exercises[activeIndex];
   async function execute(check: boolean) {
     if (!exercise) return;
-    setBusy(true); setFeedback(undefined);
-    const learner = await runtime.execute(DATABASE_URL, drafts[exercise.id] ?? "");
-    if (!learner.ok) { setResult(undefined); setFeedback({ status: "error", message: learner.error.message }); setBusy(false); return; }
-    setResult(learner.result);
-    if (check) {
-      const reference = await runtime.execute(DATABASE_URL, exercise.referenceSql);
-      if (!reference.ok) setFeedback({ status: "error", message: reference.error.message });
-      else {
-        const verdict = evaluateResults(learner.result, reference.result, exercise.evaluation);
-        setFeedback(verdict);
-        if (verdict.status === "pass") setCompleted((current) => {
-          const next = new Set(current).add(exercise.id); saveProgress(storage, next); return next;
-        });
+    setBusy(true);
+    setFeedback(undefined);
+    try {
+      const learner = await runtime.execute(DATABASE_URL, drafts[exercise.id] ?? "");
+      if (!learner.ok) {
+        setResult(undefined);
+        setFeedback({ status: "error", message: learner.error.message });
+        return;
       }
+      setResult(learner.result);
+      if (check) {
+        const reference = await runtime.execute(DATABASE_URL, exercise.referenceSql);
+        if (!reference.ok) setFeedback({ status: "error", message: reference.error.message });
+        else {
+          const verdict = evaluateResults(learner.result, reference.result, exercise.evaluation);
+          setFeedback(verdict);
+          if (verdict.status === "pass") setCompleted((current) => {
+            const next = new Set(current).add(exercise.id); saveProgress(storage, next); return next;
+          });
+        }
+      }
+    } catch (error: unknown) {
+      setResult(undefined);
+      setFeedback({ status: "error", message: error instanceof Error ? error.message : "Unable to execute the query." });
+    } finally {
+      setBusy(false);
     }
-    setBusy(false);
   }
 
   function select(index: number) { setActiveIndex(index); setResult(undefined); setFeedback(undefined); }
