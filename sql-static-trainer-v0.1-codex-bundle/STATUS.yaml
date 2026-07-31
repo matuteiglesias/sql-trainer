@@ -1,29 +1,29 @@
 bundle: sql-static-trainer-v0.1
 release: "0.1"
 updated: "2026-07-30"
-current_gate: PR01
+current_gate: PR06
 tasks:
   PR01:
-    status: pending
+    status: merged
     blocks: [PR02, PR03, PR04, PR05, PR06]
   PR02:
-    status: pending
+    status: merged
     depends_on: [PR01]
     blocks: [PR03, PR04, PR05, PR06]
   PR03:
-    status: pending
+    status: merged
     depends_on: [PR02]
     blocks: [PR04, PR05, PR06]
   PR04:
-    status: pending
+    status: implemented
     depends_on: [PR03]
     blocks: [PR05, PR06]
   PR05:
-    status: pending
+    status: implemented
     depends_on: [PR04]
     blocks: [PR06]
   PR06:
-    status: pending
+    status: blocked
     depends_on: [PR05]
-release_status: not_started
-next_action: Execute tasks/PR01_foundation_and_fixture.md
+release_status: blocked
+next_action: Restore npm registry access, run the complete release gate and production smoke, then deploy the static artifact.
