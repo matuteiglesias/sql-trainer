@@ -1,0 +1,51 @@
+{
+  "exerciseId": "hospital-005-province-names",
+  "columns": [
+    "first_name",
+    "last_name",
+    "province_name"
+  ],
+  "rows": [
+    [
+      "John",
+      "Smith",
+      "Ontario"
+    ],
+    [
+      "Alice",
+      "Carter",
+      "Nova Scotia"
+    ],
+    [
+      "Carlos",
+      "Diaz",
+      "Quebec"
+    ],
+    [
+      "Chloe",
+      "Martin",
+      "Ontario"
+    ],
+    [
+      "Bob",
+      "Stone",
+      "British Columbia"
+    ],
+    [
+      "Clara",
+      "Oswald",
+      "Nova Scotia"
+    ],
+    [
+      "Cedric",
+      "Hall",
+      "Ontario"
+    ],
+    [
+      "Eva",
+      "Green",
+      "Quebec"
+    ]
+  ],
+  "rowOrder": "ignore"
+}

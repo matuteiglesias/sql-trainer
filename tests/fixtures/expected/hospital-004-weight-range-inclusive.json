@@ -1,0 +1,22 @@
+{
+  "exerciseId": "hospital-004-weight-range-inclusive",
+  "columns": [
+    "first_name",
+    "last_name"
+  ],
+  "rows": [
+    [
+      "Alice",
+      "Carter"
+    ],
+    [
+      "Carlos",
+      "Diaz"
+    ],
+    [
+      "Clara",
+      "Oswald"
+    ]
+  ],
+  "rowOrder": "ignore"
+}

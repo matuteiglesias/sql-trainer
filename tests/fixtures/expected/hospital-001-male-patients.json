@@ -1,0 +1,31 @@
+{
+  "exerciseId": "hospital-001-male-patients",
+  "columns": [
+    "first_name",
+    "last_name",
+    "gender"
+  ],
+  "rows": [
+    [
+      "John",
+      "Smith",
+      "M"
+    ],
+    [
+      "Carlos",
+      "Diaz",
+      "M"
+    ],
+    [
+      "Bob",
+      "Stone",
+      "M"
+    ],
+    [
+      "Cedric",
+      "Hall",
+      "M"
+    ]
+  ],
+  "rowOrder": "ignore"
+}

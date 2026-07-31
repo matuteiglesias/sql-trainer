@@ -1,0 +1,26 @@
+{
+  "exerciseId": "hospital-002-missing-allergies",
+  "columns": [
+    "first_name",
+    "last_name"
+  ],
+  "rows": [
+    [
+      "John",
+      "Smith"
+    ],
+    [
+      "Carlos",
+      "Diaz"
+    ],
+    [
+      "Clara",
+      "Oswald"
+    ],
+    [
+      "Eva",
+      "Green"
+    ]
+  ],
+  "rowOrder": "ignore"
+}
