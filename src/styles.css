@@ -1,0 +1,35 @@
+:root {
+  color: #17202a;
+  background: #f4f6f8;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  width: min(42rem, calc(100% - 3rem));
+  margin: 6rem auto;
+  padding: 2.5rem;
+  border: 1px solid #d7dde3;
+  border-radius: 0.75rem;
+  background: white;
+  box-shadow: 0 0.75rem 2rem rgb(23 32 42 / 8%);
+}
+
+.dialect {
+  display: inline-block;
+  margin: 0;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  color: #154360;
+  background: #d6eaf8;
+  font: 600 0.8rem ui-monospace, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+}
