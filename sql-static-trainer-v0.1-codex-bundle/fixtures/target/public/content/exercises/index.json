@@ -1,0 +1,10 @@
+{
+  "datasetId": "hospital-v0.1",
+  "exerciseFiles": [
+    "hospital-001-male-patients.json",
+    "hospital-002-missing-allergies.json",
+    "hospital-003-names-starting-c.json",
+    "hospital-004-weight-range-inclusive.json",
+    "hospital-005-province-names.json"
+  ]
+}

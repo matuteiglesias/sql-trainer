@@ -1,0 +1,22 @@
+{
+  "id": "hospital-004-weight-range-inclusive",
+  "datasetId": "hospital-v0.1",
+  "title": "Patients in an inclusive weight range",
+  "difficulty": "easy",
+  "prompt": "Return first_name and last_name for patients weighing from 100 through 120 kilograms, including both limits.",
+  "concepts": [
+    "SELECT",
+    "WHERE",
+    "BETWEEN"
+  ],
+  "starterSql": "SELECT\n  first_name,\n  last_name\nFROM patients\nWHERE -- inclusive range;",
+  "referenceSql": "SELECT first_name, last_name\nFROM patients\nWHERE weight BETWEEN 100 AND 120;",
+  "evaluation": {
+    "columnOrder": "strict",
+    "rowOrder": "ignore",
+    "duplicateRows": "preserve",
+    "numericTolerance": 1e-09
+  },
+  "hint": "BETWEEN includes both boundary values.",
+  "explanation": "Equivalent >= and <= predicates must also pass."
+}

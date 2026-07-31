@@ -1,0 +1,30 @@
+cases:
+  - id: identical
+    expected: pass
+  - id: equivalent_predicate
+    expected: pass
+  - id: ignored_row_reordering
+    expected: pass
+  - id: strict_row_reordering
+    expected: fail
+    reason: row-values
+  - id: wrong_column_alias
+    expected: fail
+    reason: column-names
+  - id: missing_row
+    expected: fail
+    reason: row-count
+  - id: extra_row
+    expected: fail
+    reason: row-count
+  - id: duplicate_multiplicity
+    expected: fail
+    reason: row-values
+  - id: null_vs_empty
+    expected: fail
+    reason: row-values
+  - id: numeric_inside_tolerance
+    expected: pass
+  - id: numeric_outside_tolerance
+    expected: fail
+    reason: row-values

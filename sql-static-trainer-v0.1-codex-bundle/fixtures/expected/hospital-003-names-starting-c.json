@@ -1,0 +1,21 @@
+{
+  "exerciseId": "hospital-003-names-starting-c",
+  "columns": [
+    "first_name"
+  ],
+  "rows": [
+    [
+      "Carlos"
+    ],
+    [
+      "Chloe"
+    ],
+    [
+      "Clara"
+    ],
+    [
+      "Cedric"
+    ]
+  ],
+  "rowOrder": "ignore"
+}

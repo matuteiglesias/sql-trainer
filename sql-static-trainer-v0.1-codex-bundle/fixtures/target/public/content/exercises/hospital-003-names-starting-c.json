@@ -1,0 +1,22 @@
+{
+  "id": "hospital-003-names-starting-c",
+  "datasetId": "hospital-v0.1",
+  "title": "Names beginning with C",
+  "difficulty": "easy",
+  "prompt": "Return the first_name of every patient whose first name begins with the letter C.",
+  "concepts": [
+    "SELECT",
+    "WHERE",
+    "LIKE"
+  ],
+  "starterSql": "SELECT first_name\nFROM patients\nWHERE -- prefix match;",
+  "referenceSql": "SELECT first_name\nFROM patients\nWHERE first_name LIKE 'C%';",
+  "evaluation": {
+    "columnOrder": "strict",
+    "rowOrder": "ignore",
+    "duplicateRows": "preserve",
+    "numericTolerance": 1e-09
+  },
+  "hint": "Use LIKE with a trailing percent wildcard.",
+  "explanation": "The percent wildcard matches zero or more following characters."
+}

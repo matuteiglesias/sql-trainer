@@ -1,0 +1,22 @@
+{
+  "id": "hospital-001-male-patients",
+  "datasetId": "hospital-v0.1",
+  "title": "List male patients",
+  "difficulty": "easy",
+  "prompt": "Return first_name, last_name, and gender for every patient whose gender is M.",
+  "concepts": [
+    "SELECT",
+    "WHERE",
+    "equality"
+  ],
+  "starterSql": "SELECT\n  -- columns\nFROM patients\nWHERE -- condition;",
+  "referenceSql": "SELECT first_name, last_name, gender\nFROM patients\nWHERE gender = 'M';",
+  "evaluation": {
+    "columnOrder": "strict",
+    "rowOrder": "ignore",
+    "duplicateRows": "preserve",
+    "numericTolerance": 1e-09
+  },
+  "hint": "Use an equality condition in WHERE.",
+  "explanation": "A text literal is enclosed in single quotes."
+}

@@ -1,0 +1,22 @@
+{
+  "id": "hospital-002-missing-allergies",
+  "datasetId": "hospital-v0.1",
+  "title": "Find missing allergy records",
+  "difficulty": "easy",
+  "prompt": "Return first_name and last_name for patients whose allergies value is NULL.",
+  "concepts": [
+    "SELECT",
+    "WHERE",
+    "IS NULL"
+  ],
+  "starterSql": "SELECT\n  first_name,\n  last_name\nFROM patients\nWHERE -- null test;",
+  "referenceSql": "SELECT first_name, last_name\nFROM patients\nWHERE allergies IS NULL;",
+  "evaluation": {
+    "columnOrder": "strict",
+    "rowOrder": "ignore",
+    "duplicateRows": "preserve",
+    "numericTolerance": 1e-09
+  },
+  "hint": "NULL is tested with IS NULL, not = NULL.",
+  "explanation": "The empty string and NULL are different values; Chloe must not appear."
+}

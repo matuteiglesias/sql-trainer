@@ -1,0 +1,22 @@
+{
+  "id": "hospital-005-province-names",
+  "datasetId": "hospital-v0.1",
+  "title": "Attach full province names",
+  "difficulty": "easy",
+  "prompt": "Return each patient's first_name, last_name, and full province_name by joining patients with provinces.",
+  "concepts": [
+    "SELECT",
+    "INNER JOIN",
+    "foreign key"
+  ],
+  "starterSql": "SELECT\n  -- patient names and province name\nFROM patients AS p\nJOIN provinces AS pr\n  ON -- matching keys;",
+  "referenceSql": "SELECT p.first_name, p.last_name, pr.province_name\nFROM patients AS p\nJOIN provinces AS pr\n  ON pr.province_id = p.province_id;",
+  "evaluation": {
+    "columnOrder": "strict",
+    "rowOrder": "ignore",
+    "duplicateRows": "preserve",
+    "numericTolerance": 1e-09
+  },
+  "hint": "Both tables share province_id.",
+  "explanation": "The join replaces the abbreviated foreign key with its descriptive province name."
+}
